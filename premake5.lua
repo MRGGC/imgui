@@ -21,6 +21,12 @@ project "imgui"
 		"imgui_demo.cpp"
 	}
 
+	postbuildcommands
+	{
+		("{COPY} %{cfg.buildtarget.relpath} %{wks.location}/build/bin/" .. outputdir .. "/Sandbox/")
+	}
+	postbuildmessage "Copied libs"
+
 	filter "system:windows"
 		systemversion "latest"
 
